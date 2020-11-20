@@ -1,0 +1,15 @@
+.heading {
+  width: fit-content;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+h1 {
+  padding: 5px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.heading .underliner {
+  height: 3px;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #446df6;
+}

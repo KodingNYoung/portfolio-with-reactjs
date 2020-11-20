@@ -1,0 +1,40 @@
+/* button icons */
+.burger {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 15px 10px;
+  display: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.burger:hover {
+  background-color: #b2c4fc34;
+}
+.burger .line {
+  width: 30px;
+  height: 3px;
+  margin: 5px;
+  background-color: #446df6;
+}
+.burger .line.line2 {
+  width: 23px;
+  margin-left: auto;
+}
+
+.cancel {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 1.3rem;
+  color: #fff;
+  transition: transform 0.3s;
+  transform-origin: 50% 50%;
+}
+.cancel:hover {
+  transform: rotateZ(180deg);
+}
