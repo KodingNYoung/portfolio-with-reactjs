@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Condensed:wght@700&family=Roboto:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Roboto+Condensed:wght@700&family=Roboto:wght@300;400&display=swap");
 
 * {
   margin: 0;
@@ -17,31 +17,31 @@ body {
   justify-content: space-around;
 }
 .home .avatar-container {
-  width: 70vw;
-  height: 70vw;
+  width: 40vw;
+  height: 40vw;
   max-width: 230px;
   max-height: 230px;
   overflow: hidden;
   border-radius: 50%;
-  padding-top: 5px;
   box-shadow: 0px 0px 10px #ccc;
+  margin: 5px;
 }
 .avatar-container img {
   width: 100%;
-  transform-origin: center;
-  transform: rotateZ(-30deg);
+  height: 100%;
+  object-fit: cover;
 }
 .home .intro-text {
   text-align: center;
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: "Roboto Mono", sans-serif;
   font-size: 1.5rem;
-  margin:40px 0 30px;
+  margin: 40px 0 30px;
 }
 .intro-text span {
   color: #446df6;
-} 
+}
 .intro-text .resume-link {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   text-decoration: none;
   display: block;
   width: fit-content;
@@ -57,9 +57,9 @@ body {
 }
 
 /* about */
-main.about article{
+main.about article {
   padding: 10px 30px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -69,7 +69,7 @@ main.about article p {
 }
 main.about article span {
   color: #446df6;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 /* projects */
 section.projects .project-cards-list {
@@ -110,7 +110,7 @@ form .form-input {
   width: 100%;
   margin: 8px 0;
   padding: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   border-radius: 3px;
   border: 1px solid;
