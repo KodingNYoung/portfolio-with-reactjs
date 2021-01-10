@@ -4,7 +4,7 @@
   align-items: center;
   padding: 15px 0;
 }
-.navBar img{
+.navBar img {
   width: 15vw;
   max-width: 100px;
 }
@@ -14,23 +14,22 @@
   display: flex;
   justify-content: space-around;
 }
-.navBar ul a, .navDrawer ul a {
+.navBar ul a,
+.navDrawer ul a {
   color: #446df6;
   text-decoration: none;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-weight: 400;
   text-transform: capitalize;
 }
-.navBar ul a li, .navDrawer ul a li {
-  border-bottom:2px solid transparent;
-
+.navBar ul a li,
+.navDrawer ul a li {
+  border-bottom: 2px solid transparent;
 }
 .navBar ul a:hover li,
- .navBar ul a li.active,
- .navDrawer ul a:hover li,
- .navDrawer ul a li.active{
+.navBar ul a li.active {
   font-weight: 700;
-  border-color:#446df6;
+  border-color: #446df6;
 }
 
 /* nav drawer */
@@ -47,7 +46,7 @@
   justify-content: space-around;
   align-items: center;
   display: none;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 .navDrawer ul {
   width: 100%;
@@ -58,11 +57,16 @@
   flex-direction: column;
   list-style: none;
 }
-.navDrawer ul li{
+.navDrawer ul li {
   animation: slideIn 5s ease-in both;
 }
 .navDrawer ul a {
   color: #fff;
+}
+.navDrawer ul a:hover li,
+.navDrawer ul a li.active {
+  font-weight: 700;
+  border-color: #fff;
 }
 @keyframes slideIn {
   from {
@@ -74,4 +78,3 @@
     transform: translateX(0);
   }
 }
-

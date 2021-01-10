@@ -1,24 +1,33 @@
-import React from 'react'
-import SocialHandles from '../Components/socialHandles/SocialHandles'
+import React from "react";
+import SocialHandles from "../Components/socialHandles/SocialHandles";
 
-import avatar from '../img/avatar.png';
+// import avatar from "../img/avatar.png";
 
-const Home = () => {
+const Home = ({ userDetails }) => {
+  // console.log(userDetails);
   return (
     <section className="home">
       <div className="avatar-container">
-        <img src={avatar} alt=""/>
+        <img src={userDetails.avatar_link} alt="" />
       </div>
       <article className="intro-text">
-        <p>Hi! I'm <span>KodingNYoung.</span></p>
-        <p>A web developer</p>
+        <p>
+          Hi! I'm <span>{userDetails.name}</span>
+        </p>
+        <p>A {userDetails.job}</p>
 
-        <a href="https://firebasestorage.googleapis.com/v0/b/portfolio-5cc31.appspot.com/o/ADEBAMBO%2C's%20Resume.pdf?alt=media&token=199fd2e0-8ef0-485a-a31f-c554f0f42d66" className="resume-link" target="_blank" rel="noreferrer">résumé</a>
-
+        <a
+          href={userDetails.resume_link}
+          className="resume-link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          résumé
+        </a>
       </article>
-      <SocialHandles color="#446df6"/>
+      <SocialHandles color="#446df6" contact={userDetails.contact} />
     </section>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

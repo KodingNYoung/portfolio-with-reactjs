@@ -1,62 +1,82 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
 
 // components
-import Navs from './Components/Nav/Nav';
+import Navs from "./Components/Nav/Nav";
+import Preloader from './Components/Preloader/Preloader'
 
 // pages
-import Home from './views/Home';
-import About from './views/About';
-import Project from './views/Project';
-import Contact from './views/Contact';
+import Home from "./views/Home";
+import About from "./views/About";
+import Project from "./views/Project";
+import Contact from "./views/Contact";
 
 // dependencies
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 // css
-import './portfolio.css';
+import "./portfolio.css";
+import useFireStoreToGetUserData from "./firebase/hooks/useFirestoreToGetUserData";
 
 //class
-class Portfolio extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      views: ['home', 'about', 'projects', 'contact'],
-      isDrawerOpen: false,
-    };
-  }
+const Portfolio = () => {
+  const { doc, error } = useFireStoreToGetUserData(
+    "dashboard",
+    "abiodunadebambo44@gmail.com"
+  );
 
-  openDrawer = () => {
-    this.setState({
-      isDrawerOpen: true,
-    })
-  }
-  closeDrawer = () => {
-    this.setState({
-      isDrawerOpen: false,
-    })
-  }
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
+  const [errors, setErrors] = useState(null)
+  const [loading, setLoading] = useState(true);
+  const views = ["home", "about", "projects", "contact"];
 
-  render () {
-    return (
+  useEffect(() => {
+    if (doc.name) {
+      setErrors(error);
+      setUserDetails(doc);
+      setLoading(false);
+    }
+  }, [doc]);
+
+  const openDrawer = () => {
+    setIsDrawerOpen(true);
+  };
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
+  return (
     <Router>
-      <div className="portfolio">
-        <Navs 
-          views={this.state.views} 
-          openDrawer = {this.openDrawer}
-          closeDrawer={this.closeDrawer}
-          open={this.state.isDrawerOpen} 
-        />
-        <Switch>
-          <Route path='/home' component={Home}/>
-          <Route exact path='/' component={Home}/>
-          <Route path='/about' component={About}/>
-          <Route path='/projects' component={Project}/>
-          <Route path='/contact' component={Contact}/>
-        </Switch>
-      </div>
+      {loading && <Preloader />}
+      {errors && !userDetails.name && !loading && <p>{errors}</p>}
+      {userDetails.name && (
+        <div className="portfolio">
+          <Navs
+            views={views}
+            openDrawer={openDrawer}
+            closeDrawer={closeDrawer}
+            open={isDrawerOpen}
+            contact={userDetails.contact}
+          />
+          <Switch>
+            <Route
+              path="/home"
+              component={() => <Home userDetails={userDetails} />}
+            />
+            <Route path="/about" component={() => <About about={userDetails.about}/>} />
+            <Route path="/projects" component={Project} />
+            <Route path="/contact" component={Contact} />
+            <Redirect to="/home" />
+          </Switch>
+        </div>
+      )}
     </Router>
-  )
-  }
-}
+  );
+};
 
 export default Portfolio;

@@ -8,14 +8,15 @@ import {
 
 import "./socialHandles.css";
 
-const SocialHandles = ({ color }) => {
+const SocialHandles = ({ color, contact }) => {
   const linkStyle = {
     color: color,
   };
+  const { twitter_handle, github_handle, linkedin_id } = contact;
   return (
     <div className="socialMediaHandles">
       <a
-        href="https://twitter.com/kodingnyoung"
+        href={`https://twitter.com/${twitter_handle}`}
         style={linkStyle}
         target="_blank"
         rel="noreferrer"
@@ -23,7 +24,7 @@ const SocialHandles = ({ color }) => {
         <FontAwesomeIcon icon={faTwitter} />
       </a>
       <a
-        href="https://github.com/KodingNYoung/"
+        href={`https://github.com/${github_handle}`}
         style={linkStyle}
         target="_blank"
         rel="noreferrer"
@@ -31,7 +32,7 @@ const SocialHandles = ({ color }) => {
         <FontAwesomeIcon icon={faGithub} />
       </a>
       <a
-        href="https://www.linkedin.com/in/abiodun-adebambo/"
+        href={`https://www.linkedin.com/in/${linkedin_id}/`}
         style={linkStyle}
         target="_blank"
         rel="noreferrer"
