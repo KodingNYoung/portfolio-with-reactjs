@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // components
 import Navs from "./Components/Nav/Nav";
+import Preloader from './Components/Preloader/Preloader'
 
 // pages
 import Home from "./views/Home";
@@ -35,7 +36,6 @@ const Portfolio = () => {
   const views = ["home", "about", "projects", "contact"];
 
   useEffect(() => {
-    // console.log(doc);
     if (doc.name) {
       setErrors(error);
       setUserDetails(doc);
@@ -52,8 +52,8 @@ const Portfolio = () => {
 
   return (
     <Router>
-      {loading && <p> loading din din din... </p>}
-      {errors && !userDetails.name && !loading && <p>error</p>}
+      {loading && <Preloader />}
+      {errors && !userDetails.name && !loading && <p>{errors}</p>}
       {userDetails.name && (
         <div className="portfolio">
           <Navs

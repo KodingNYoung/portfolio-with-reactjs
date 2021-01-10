@@ -15,14 +15,14 @@ const ProjectCards = () => {
   console.log(docs)
   return (
     <div className="project-cards-list">
-      {showPreloader && <Preloader />}
-      {
-        docs.map(doc => {
-          return <ProjectCard key={doc.id} project={doc}/>
-        })
-      }
+      {showPreloader && (
+        <Preloader messsage="Loadingprojects... Make sure your internet connection is turned on." />
+      )}
+      {docs.map((doc) => {
+        return <ProjectCard key={doc.id} project={doc} />;
+      })}
     </div>
-  )
+  );
 }
 
 const Project = () => {

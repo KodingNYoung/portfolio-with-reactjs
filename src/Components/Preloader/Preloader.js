@@ -2,11 +2,11 @@ import React from 'react'
 import './Preloader.css';
 import preloader from '../../img/preloader.svg';
 
-const Preloader = () => {
+const Preloader = ({messsage}) => {
   return (
     <div className="preloader">
       <img src={preloader} alt="preloader"/>
-      <p>Make sure your internet connection is turned on.</p>
+      <p>{messsage}</p>
     </div>
   )
 }
