@@ -79,6 +79,12 @@ section.projects .project-cards-list {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   position: relative;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 370px) {
+  section.projects .project-cards-list {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
 }
 
 /* contact */
